@@ -2,7 +2,7 @@ The MIT License
 
 
 
-Copyright (c) 2013-2015 Quildreen Motta
+Copyright (c) 2015 Brett Berry
 
 
 
