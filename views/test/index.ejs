@@ -10,6 +10,11 @@
       <button id="copy" class="btn btn-primary" data-clipboard-text="{{selected.room}}">copy to clipboard</button>
    </div>
    <br/>
+   <div style="margin-top: 10px">
+      <button class="btn btn-primary" ng-click="getMyRooms()">get my rooms</button>
+      <button class="btn btn-primary" ng-click="getSubs()">get subscribers of selected room</button>
+   </div>
+   <br/>
    <div class="displayIB">
       <label for="roomjoin">Name of room to join:</label>
       <input id="roomjoin in" class="form-control" type='text' ng-model='room'/>

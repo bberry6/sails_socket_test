@@ -11,6 +11,8 @@ function($scope){
    $scope.joinRoom = joinRoom;
    $scope.leaveRoom = leaveRoom;
    $scope.getAllRooms = getAllRooms;
+   $scope.getMyRooms = getMyRooms;
+   $scope.getSubs = getSubs;
    $scope.broadcast = broadcast;
    $scope.blast = blast;
    $scope.sendToId = sendToId;
@@ -48,6 +50,19 @@ function($scope){
       console.log('all rooms: ', $scope.roomList.map(function(e){
          return e.room;
       }));
+   }
+
+   function getMyRooms(){
+      sock.post('/test/getMyRooms', function(d){
+         console.log('My rooms: ', d);
+      });
+   }
+
+   function getSubs(){
+      var sel = $scope.selected.room;
+      sock.post('/test/getSubs', {roomName: sel}, function(d){
+         console.log('Subs to '+sel+": ", d);
+      });
    }
 
    // this will send to all sockets in the room, regardless of what app theyre connected to (yay!)

@@ -36,6 +36,9 @@ module.exports = {
    getAllRooms: function(req, res){
       res.json(200, sails.sockets.rooms());
    },
+   getMyRooms: function(req, res){
+      res.json(200, sails.sockets.socketRooms(req.socket));
+   },
    sendToIdViaRoom: function(req, res){
       var data = req.allParams();
       console.log('got request to send '+data.message+" to sockId: "+data.sid+" via room broadcast");
@@ -44,6 +47,10 @@ module.exports = {
          msg:data.message,
          via:'broadcast'
       });
+   },
+   getSubs: function(req, res){
+      var data = req.allParams();
+      res.json(200,sails.sockets.subscribers(data.roomName));
    },
    sendToId: function(req, res){
       var data = req.allParams();
