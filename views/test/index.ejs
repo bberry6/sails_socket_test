@@ -1,0 +1,41 @@
+<div class="divCtrl" ng-controller="testController">
+   <div class="displayIB">
+      <label for="roomlist">Room list:</label>
+      <select id="roomlist" class="form-control in" ng-model="selected" ng-options="r.room for r in roomList"/></select>
+   </div>
+   <div class="displayIB">
+      <button class="btn btn-primary" ng-click="leaveRoom()">leave</button>
+   </div>
+   <div class="displayIB">
+      <button id="copy" class="btn btn-primary" data-clipboard-text="{{selected.room}}">copy to clipboard</button>
+   </div>
+   <br/>
+   <div class="displayIB">
+      <label for="roomjoin">Name of room to join:</label>
+      <input id="roomjoin in" class="form-control" type='text' ng-model='room'/>
+   </div>
+   <div class="displayIB">
+      <button class="btn btn-primary" ng-click="joinRoom()">join</button>
+   </div>
+
+
+
+   <br/>
+   <label for="message">Message to send: </label>
+   <input class="form-control in" id="message" type="text" ng-model="msg"/>
+
+   <div class="displayIB">
+      <button class="btn btn-primary" ng-click="blast()">blast to all connected sockets</button>
+   </div>
+   <div class="displayIB">
+      <button class="btn btn-primary" ng-click="broadcast()">broadcast to selected room</button>
+   </div>
+   <br/>
+   <label for="sockid">Socket id:</label>
+   <input class="form-control in" type="text" ng-model="sockid" id="sockid"/>
+   <button class="btn btn-primary" ng-click="sendToId()">emit to specific socket</button>
+   <button class="btn btn-primary" ng-click="sendToIdViaRoom()">broadcast to room with specific socket id</button>
+   <br/>
+   <span>Note: each socket automatically joins a room with its own socket id as its' name</span>
+   <br/>
+</div>
